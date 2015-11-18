@@ -119,7 +119,7 @@ int main (int argc, char *argv[])
                 
 //             A. Send SIGINT to the process to terminate it;
 
-               kill(currentprocess->getpid(), SIGINT);
+               kill(currentprocess->pid, SIGINT);
                 
 //             B. Free up process structure memory
 
@@ -131,14 +131,14 @@ int main (int argc, char *argv[])
 //           dispatcher queue is not empty &&
 //           arrivaltime of process at head of queue is <= dispatcher timer:
 
-    
+    if(currentprocess == NULL && inputqueue != NULL && inputqueue->arrivaltime <= timer){//begin if
 
 //          a. Dequeue process and start it (fork & exec)
 //          b. Set it as currently running process;
-            
+            process = deqPcb(&inputqueue);
+	    currentprocess = startPcb(process);
         
-        
-
+}//end if
 //     iii. sleep for one second;
 
        sleep(1);
