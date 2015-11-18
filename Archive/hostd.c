@@ -40,6 +40,7 @@ OS Eercises - Homework 5 - HOST dispatcher - Dispatcher Shell
 ********************************************************************/
 
 #include "hostd.h"
+#include "pcb.h"
 
 #define VERSION "1.0"
 
@@ -119,7 +120,7 @@ int main (int argc, char *argv[])
                 
 //             A. Send SIGINT to the process to terminate it;
 
-               kill(currentprocess->pid, SIGINT);
+               currentprocess = terminatePcb(currentprocess);
                 
 //             B. Free up process structure memory
 
