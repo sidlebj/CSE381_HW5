@@ -111,11 +111,11 @@ int main (int argc, char *argv[])
 
 //          a. Decrement process remainingcputime;
 
-        
+        currentprocess->remainingcputime--;
             
 //          b. If times up:
 
-          
+          if(currentprocess->remainingcputime <=0){//begin if1
                 
 //             A. Send SIGINT to the process to terminate it;
 
@@ -125,7 +125,7 @@ int main (int argc, char *argv[])
 
           
           
-        
+        }//end if1
 	}//end if
 //     ii. If no process now currently running &&
 //           dispatcher queue is not empty &&
@@ -141,15 +141,15 @@ int main (int argc, char *argv[])
 
 //     iii. sleep for one second;
 
-       
+       sleep(1);
             
 //      iv. Increment dispatcher timer;
 
-       
+       timer++;
             
 //       v. Go back to 4.
 
-   
+   continue;
         
 }//end while
 //    5. Exit
