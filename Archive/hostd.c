@@ -119,12 +119,12 @@ int main (int argc, char *argv[])
                 
 //             A. Send SIGINT to the process to terminate it;
 
-               
+               kill(currentprocess->getpid(), SIGINT);
                 
 //             B. Free up process structure memory
 
-          
-          
+          free(currentprocess);
+          printf("Successful");
         }//end if1
 	}//end if
 //     ii. If no process now currently running &&
