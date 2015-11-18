@@ -102,11 +102,12 @@ int main (int argc, char *argv[])
         
 //  4. While there's anything in the queue or there is a currently running process:
 
-   
+   while(inputqueue != NULL || currentprocess != NULL){//begin while
+	
 
 //      i. If a process is currently running;
 
-        
+        if(currentprocess != NULL){//begin if
 
 //          a. Decrement process remainingcputime;
 
@@ -125,6 +126,7 @@ int main (int argc, char *argv[])
           
           
         
+	}//end if
 //     ii. If no process now currently running &&
 //           dispatcher queue is not empty &&
 //           arrivaltime of process at head of queue is <= dispatcher timer:
@@ -149,6 +151,7 @@ int main (int argc, char *argv[])
 
    
         
+}//end while
 //    5. Exit
 
     exit (0);
